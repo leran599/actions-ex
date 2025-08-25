@@ -1,0 +1,36 @@
+name: Main Branch Push Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  print-message:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Print message
+      run: |
+        echo "🚀 New push detected on main branch!"
+        echo "📅 Timestamp: $(date)"
+        echo "👤 Actor: ${{ github.actor }}"
+        echo "📝 Commit: ${{ github.sha }}"
+        echo "📋 Message: ${{ github.event.head_commit.message }}"
+        
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+        
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        
+    - name: Run basic tests
+      run: |
+        python -c "import actions_ex; print('✅ Module imported successfully')"
