@@ -12,7 +12,7 @@ class ExampleClass:
     This class provides simple string manipulation methods as an example
     of how to structure your code.
     """
-    
+
     def __init__(self, message: str):
         """
         Initialize the ExampleClass with a message.
@@ -21,7 +21,7 @@ class ExampleClass:
             message: The message to store and manipulate
         """
         self.message = message
-    
+
     def reverse_message(self) -> str:
         """
         Reverse the stored message.
@@ -30,7 +30,7 @@ class ExampleClass:
             The reversed message
         """
         return self.message[::-1]
-    
+
     def get_message_length(self) -> int:
         """
         Get the length of the stored message.
@@ -39,7 +39,7 @@ class ExampleClass:
             The length of the message
         """
         return len(self.message)
-    
+
     def get_message_words(self) -> list[str]:
         """
         Split the message into words.
@@ -48,7 +48,7 @@ class ExampleClass:
             List of words from the message
         """
         return self.message.split()
-    
+
     def to_uppercase(self) -> str:
         """
         Convert the message to uppercase.
@@ -57,7 +57,7 @@ class ExampleClass:
             The message in uppercase
         """
         return self.message.upper()
-    
+
     def to_lowercase(self) -> str:
         """
         Convert the message to lowercase.
@@ -66,11 +66,11 @@ class ExampleClass:
             The message in lowercase
         """
         return self.message.lower()
-    
+
     def __str__(self) -> str:
         """String representation of the class."""
         return f"ExampleClass(message='{self.message}')"
-    
+
     def __repr__(self) -> str:
         """Detailed string representation of the class."""
         return f"ExampleClass(message='{self.message}')"

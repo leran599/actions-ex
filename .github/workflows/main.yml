@@ -26,15 +26,21 @@ jobs:
       with:
         python-version: '3.9'
         
+    - name: Install Poetry
+      uses: snok/install-poetry@v1
+      with:
+        version: latest
+        virtualenvs-create: true
+        virtualenvs-in-project: true
+        
     - name: Install dependencies
       run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt
+        poetry install --with dev
         
     - name: Run basic tests
       run: |
-        python -c "import actions_ex; print('✅ Module imported successfully')"
+        poetry run python -c "import actions_ex; print('✅ Module imported successfully')"
 
     - name: Run linter
       run: |
-        ruff check .
+        poetry run ruff check .
