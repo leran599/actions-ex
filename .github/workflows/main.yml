@@ -24,7 +24,7 @@ jobs:
     - name: Setup Python
       uses: actions/setup-python@v4
       with:
-        python-version: '3.11'
+        python-version: '3.9'
         
     - name: Install dependencies
       run: |
@@ -34,3 +34,7 @@ jobs:
     - name: Run basic tests
       run: |
         python -c "import actions_ex; print('✅ Module imported successfully')"
+
+    - name: Run linter
+      run: |
+        ruff check .
